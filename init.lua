@@ -1,0 +1,7 @@
+require("a23kumar.plugin-setup")
+require("a23kumar.core.options")
+require("a23kumar.core.keymaps")
+require("a23kumar.core.colorscheme")
+require("a23kumar.plugins.comment")
+require("a23kumar.plugins.nvim-tree")
+require("a23kumar.plugins.lualine")
