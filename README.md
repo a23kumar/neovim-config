@@ -94,6 +94,11 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 - `<CR>` (Enter): Open file in current window/buffer
 - `<C-t>`: Open file in new tab
 
+**Auto-opening Behavior:**
+- File explorer automatically opens when you start Neovim with `nvim` (no file arguments)
+- File explorer automatically opens in new tabs (`<leader>to`)
+- Explorer syncs with current working directory and shows current file location
+
 #### Bufferline (VS Code-like Tabs)
 
 Navigate and manage your open files with a beautiful tab bar at the top.
