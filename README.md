@@ -117,6 +117,28 @@ Navigate and manage your open files with a beautiful tab bar at the top.
 | `<leader>bs` | Normal | Sort buffers by extension |
 | `<leader>bS` | Normal | Sort buffers by directory |
 
+#### Neoscroll (Smooth Scrolling)
+
+Navigate through files with smooth, animated scrolling instead of instant jumps.
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `<C-u>` | Normal | Scroll UP half a page (smooth animation) |
+| `<C-d>` | Normal | Scroll DOWN half a page (smooth animation) |
+| `<C-b>` | Normal | Scroll UP one full page (smooth animation) |
+| `<C-f>` | Normal | Scroll DOWN one full page (smooth animation) |
+| `<C-y>` | Normal | Scroll UP one line (precise navigation) |
+| `<C-e>` | Normal | Scroll DOWN one line (precise navigation) |
+| `zt` | Normal | Move current line to TOP of screen |
+| `zz` | Normal | Move current line to CENTER of screen |
+| `zb` | Normal | Move current line to BOTTOM of screen |
+
+**Animation Details:**
+- Half-page scrolling (`<C-u>/<C-d>`): 250ms with sine easing
+- Full-page scrolling (`<C-b>/<C-f>`): 450ms with circular easing  
+- Line-by-line scrolling (`<C-y>/<C-e>`): 100ms with constant speed
+- Cursor positioning (`zt/zz/zb`): 250ms smooth transition
+
 #### Buffer Management (Bbye)
 
 | Keymap | Mode | Description |
@@ -251,3 +273,4 @@ Here is a list of all the plugins used in this configuration and what they do.
 - **[nvim-notify](https://github.com/rcarriga/nvim-notify)**: A prettier notification manager.
 - **[dressing.nvim](https://github.com/stevearc/dressing.nvim)**: Provides a better UI for `vim.ui.input` and `vim.ui.select`.
 - **[flash.nvim](https://github.com/folke/flash.nvim)**: Enhances search and navigation by highlighting all matches on screen.
+- **[neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)**: Provides smooth scrolling animations instead of instant jumps for better navigation experience.

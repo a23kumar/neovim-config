@@ -120,6 +120,9 @@ return packer.startup(function(use)
     -- Better search
     use("folke/flash.nvim")
 
+    -- Smooth scrolling
+    use("karb94/neoscroll.nvim")
+
     if packer_bootstrap then
         require("packer").sync()
     end
