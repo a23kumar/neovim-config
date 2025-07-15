@@ -88,6 +88,20 @@ nvimtree.setup({
   },
 })
 
+-- Remap <CR> (Enter) in NvimTree to open files in current window/buffer
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NvimTree",
+  callback = function()
+    local api = require("nvim-tree.api")
+    
+    -- Open file in current window (creates new buffer)
+    vim.keymap.set("n", "<CR>", api.node.open.edit, { buffer = true, desc = "Open file" })
+    
+    -- Optional: Keep tab functionality for those who want it
+    vim.keymap.set("n", "<C-t>", api.node.open.tab, { buffer = true, desc = "Open in new tab" })
+  end,
+})
+
 -- Optional: Keybinds (can remove if already defined elsewhere)
 local keymap = vim.keymap
 keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })

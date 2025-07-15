@@ -36,3 +36,6 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+-- always show tabline
+opt.showtabline = 2

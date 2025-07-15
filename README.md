@@ -90,6 +90,36 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `<leader>ec` | Normal | Collapse all folders in the explorer |
 | `<leader>er` | Normal | Refresh the explorer |
 
+**Within NvimTree:**
+- `<CR>` (Enter): Open file in current window/buffer
+- `<C-t>`: Open file in new tab
+
+#### Bufferline (VS Code-like Tabs)
+
+Navigate and manage your open files with a beautiful tab bar at the top.
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `<S-h>` | Normal | Go to previous buffer |
+| `<S-l>` | Normal | Go to next buffer |
+| `<A-h>` | Normal | Move current buffer left |
+| `<A-l>` | Normal | Move current buffer right |
+| `<leader>bp` | Normal | Pick buffer (interactive selection) |
+| `<leader>bc` | Normal | Pick buffer to close |
+| `<leader>bh` | Normal | Close all buffers to the left |
+| `<leader>bl` | Normal | Close all buffers to the right |
+| `<leader>bP` | Normal | Toggle pin buffer |
+| `<leader>bs` | Normal | Sort buffers by extension |
+| `<leader>bS` | Normal | Sort buffers by directory |
+
+#### Buffer Management (Bbye)
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `<leader>bd` | Normal | Delete current buffer (without closing window) |
+| `<leader>bD` | Normal | Force delete current buffer |
+| `<leader>bo` | Normal | Delete all buffers except current |
+
 #### Telescope (Fuzzy Finder)
 
 | Keymap | Mode | Description |
@@ -179,9 +209,6 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `<leader>ss` | Normal | Auto Session | Save the current session |
 | `<leader>sr` | Normal | Auto Session | Restore the last session |
 | `<leader>sd` | Normal | Auto Session | Delete a session |
-| `<leader>bd` | Normal | Bbye | Delete a buffer without closing the window |
-| `<leader>bD` | Normal | Bbye | Force delete a buffer |
-| `<leader>bo` | Normal | Bbye | Delete all buffers except the current one |
 | `<leader>nd` | Normal | Notify | Dismiss all notifications |
 
 ## Plugin Overview
@@ -198,6 +225,7 @@ Here is a list of all the plugins used in this configuration and what they do.
 - **[Comment.nvim](https://github.com/numToStr/Comment.nvim)**: Smart and context-aware commenting (`gc`).
 - **[nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)**: A file explorer sidebar.
 - **[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)**: A fast and customizable statusline.
+- **[bufferline.nvim](https://github.com/akinsho/bufferline.nvim)**: Provides VS Code-like tabs at the top for buffer management.
 - **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)**: A highly extendable fuzzy finder for files, buffers, git, LSP, and more.
 - **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)**: Configurations for the Neovim Language Server Protocol (LSP) client.
 - **[mason.nvim](https://github.com/williamboman/mason.nvim)**: Manages LSP servers, DAP servers, linters, and formatters.
