@@ -53,6 +53,70 @@ return packer.startup(function(use)
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
 
+    -- LSP Support
+    use("neovim/nvim-lspconfig") -- enable LSP
+    use("williamboman/mason.nvim") -- simple to use language server installer
+    use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
+    use("nvimtools/none-ls.nvim") -- for formatters and linters (fork of null-ls)
+
+    -- Debugging
+    use("mfussenegger/nvim-dap") -- debug adapter protocol client
+    use("rcarriga/nvim-dap-ui") -- UI for nvim-dap
+    use("theHamsta/nvim-dap-virtual-text") -- virtual text for debugging
+    use("nvim-telescope/telescope-dap.nvim") -- telescope integration for dap
+
+    -- Autocompletion
+    use("hrsh7th/nvim-cmp") -- completion plugin
+    use("hrsh7th/cmp-buffer") -- source for text in buffer
+    use("hrsh7th/cmp-path") -- source for file system paths
+    use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+    use("hrsh7th/cmp-nvim-lua") -- for autocompletion
+    use("onsails/lspkind.nvim") -- vs-code like pictograms
+
+    -- Snippets
+    use("L3MON4D3/LuaSnip") -- snippet engine
+    use("rafamadriz/friendly-snippets") -- useful snippets
+    use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+
+    -- Treesitter
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+
+    -- Git integration
+    use("lewis6991/gitsigns.nvim")
+
+    -- Auto pairs
+    use("windwp/nvim-autopairs")
+
+    -- Indent guides
+    use("lukas-reineke/indent-blankline.nvim")
+
+    -- Better terminal
+    use("akinsho/toggleterm.nvim")
+
+    -- Better quickfix
+    use("kevinhwang91/nvim-bqf")
+
+    -- Better search and replace
+    use("nvim-pack/nvim-spectre")
+
+    -- Better buffer management
+    use("moll/vim-bbye")
+
+    -- Better session management
+    use("rmagatti/auto-session")
+
+    -- Better project management
+    use("ahmedkhalf/project.nvim")
+
+    -- Better notifications
+    use("rcarriga/nvim-notify")
+
+    -- Better UI
+    use("stevearc/dressing.nvim")
+
+    -- Better search
+    use("folke/flash.nvim")
+
     if packer_bootstrap then
         require("packer").sync()
     end
