@@ -171,10 +171,10 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `R` | Operator, Visual | Treesitter search |
 | `<c-s>` | Command | Toggle flash search |
 
-#### Miscellaneous Plugins
+## Miscellaneous Plugins
 
 | Keymap | Mode | Plugin | Description |
-|---|---|---|
+|--------|------|--------|-------------|
 | `<leader>ss` | Normal | Auto Session | Save the current session |
 | `<leader>sr` | Normal | Auto Session | Restore the last session |
 | `<leader>sd` | Normal | Auto Session | Delete a session |
@@ -182,8 +182,6 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `<leader>bD` | Normal | Bbye | Force delete a buffer |
 | `<leader>bo` | Normal | Bbye | Delete all buffers except the current one |
 | `<leader>nd` | Normal | Notify | Dismiss all notifications |
-
----
 
 ## Plugin Overview
 
