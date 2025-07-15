@@ -8,7 +8,6 @@ This guide provides an overview of how to use my Neovim configurations, tailored
 
 ### Folder location
 Place all this code in your nvim folder. You can create this dir in your .config folder that is located in your root dir (Atleast for MAC... atleast for what i know :| )
-
 ### The Leader Key
 
 The "leader" key is a central concept in this configuration. It's a key that, when pressed, opens up a whole new set of shortcuts.
@@ -138,6 +137,99 @@ Navigate through files with smooth, animated scrolling instead of instant jumps.
 - Full-page scrolling (`<C-b>/<C-f>`): 450ms with circular easing  
 - Line-by-line scrolling (`<C-y>/<C-e>`): 100ms with constant speed
 - Cursor positioning (`zt/zz/zb`): 250ms smooth transition
+
+#### Avante AI Assistant (Cursor-like IDE)
+
+AI-powered code assistance that provides intelligent suggestions and allows you to apply changes directly to your code.
+
+**🔐 API Key Setup:**
+
+Before using Avante, you need to set up an API key for your chosen provider:
+
+**For OpenAI (default):**
+```bash
+export OPENAI_API_KEY="your-openai-api-key-here"
+# Or use scoped key (recommended):
+export AVANTE_OPENAI_API_KEY="your-openai-api-key-here"
+```
+
+**For Claude:**
+```bash
+export ANTHROPIC_API_KEY="your-claude-api-key-here"
+# Or use scoped key (recommended):
+export AVANTE_ANTHROPIC_API_KEY="your-claude-api-key-here"
+```
+
+**For Gemini:**
+```bash
+export GEMINI_API_KEY="your-gemini-api-key-here"
+# Or use scoped key (recommended):
+export AVANTE_GEMINI_API_KEY="your-gemini-api-key-here"
+```
+
+Add these to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.) and restart your terminal or run `source ~/.zshrc`.
+
+**Main Commands:**
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `<leader>aa` | Normal/Visual | Ask AI for code suggestions |
+| `<leader>at` | Normal | Toggle AI panel |
+| `<leader>ar` | Normal | Refresh AI windows |
+| `<leader>af` | Normal | Switch focus windows |
+| `<leader>ae` | Normal/Visual | Edit selected block with AI |
+| `<leader>an` | Normal | Chat with the codebase |
+| `<leader>aN` | Normal | Create new chat |
+| `<leader>ah` | Normal | Show chat histories |
+| `<leader>as` | Normal | Switch AI provider |
+| `<leader>aS` | Normal | Stop current AI request |
+| `<leader>am` | Normal | Show available models |
+| `<leader>ac` | Normal | Clear history |
+| `<leader>ab` | Normal | Build Avante dependencies |
+
+**Within AI Sidebar:**
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `A` | Normal | Apply all AI suggestions |
+| `a` | Normal | Apply suggestion at cursor |
+| `r` | Normal | Retry user request |
+| `e` | Normal | Edit user request |
+| `<Tab>` | Normal | Switch between windows |
+| `<S-Tab>` | Normal | Reverse switch windows |
+| `d` | Normal | Remove file from context |
+| `@` | Normal | Add file to context |
+| `q` / `<Esc>` | Normal | Close sidebar |
+| `<CR>` | Normal | Submit query |
+| `<C-s>` | Insert | Submit query |
+
+**Diff/Conflict Resolution:**
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `co` | Normal | Choose our version (current code) |
+| `ct` | Normal | Choose their version (AI suggestion) |
+| `ca` | Normal | Choose all AI suggestions |
+| `cb` | Normal | Choose both versions |
+| `cc` | Normal | Choose version at cursor |
+| `]x` | Normal | Move to next conflict |
+| `[x` | Normal | Move to previous conflict |
+
+**AI Suggestions:**
+
+| Keymap | Mode | Description |
+|---|---|---|
+| `<M-l>` | Normal | Accept AI suggestion |
+| `<M-]>` | Normal | Next suggestion |
+| `<M-[>` | Normal | Previous suggestion |
+| `<C-]>` | Normal | Dismiss suggestion |
+
+**@Mentions (for context):**
+- `@file` - Include current file
+- `@codebase` - Include entire codebase
+- `@diagnostics` - Include diagnostic issues
+- `@quickfix` - Include quickfix list
+- `@buffers` - Include all open buffers
 
 #### Buffer Management (Bbye)
 
@@ -274,3 +366,5 @@ Here is a list of all the plugins used in this configuration and what they do.
 - **[dressing.nvim](https://github.com/stevearc/dressing.nvim)**: Provides a better UI for `vim.ui.input` and `vim.ui.select`.
 - **[flash.nvim](https://github.com/folke/flash.nvim)**: Enhances search and navigation by highlighting all matches on screen.
 - **[neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)**: Provides smooth scrolling animations instead of instant jumps for better navigation experience.
+- **[avante.nvim](https://github.com/yetone/avante.nvim)**: AI-powered code assistance plugin that emulates Cursor AI IDE behavior with intelligent suggestions and code modifications.
+- **[dressing.nvim](https://github.com/stevearc/dressing.nvim)**: Provides a better UI for `vim.ui.input` and `vim.ui.select` (used by Avante for enhanced input).

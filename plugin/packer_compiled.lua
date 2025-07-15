@@ -94,6 +94,12 @@ _G.packer_plugins = {
     path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
   },
+  ["avante.nvim"] = {
+    config = { "\27LJ\2\n«\6\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0025\3\15\0005\4\14\0=\4\16\3=\3\17\2B\0\2\1K\0\1\0\15highlights\tdiff\1\0\1\tdiff\0\1\0\2\rincoming\fDiffAdd\fcurrent\rDiffText\fwindows\1\0\3\nwidth\3\30\twrap\2\rposition\nright\14behaviour\1\0\5\18minimize_diff\2!support_paste_from_clipboard\1%auto_apply_diff_after_generation\1\29auto_set_highlight_group\2\21auto_suggestions\1\vgemini\1\0\4\nmodel\26gemini-1.5-pro-latest\ftimeout\3°ê\1\rendpoint<https://generativelanguage.googleapis.com/v1beta/models\16temperature\4æÌ™³\6æÌ™ÿ\3\vclaude\1\0\5\ftimeout\3°ê\1\nmodel\31claude-3-5-sonnet-20241022\rendpoint\30https://api.anthropic.com\15max_tokens\3€ \16temperature\4\0€€ ÿ\3\vopenai\1\0\5\ftimeout\3°ê\1\nmodel\vgpt-4o\rendpoint\30https://api.openai.com/v1\15max_tokens\3€ \16temperature\4æÌ™³\6æÌ™ÿ\3\1\0\b\fwindows\0\vgemini\0\vopenai\0\21auto_set_keymaps\1\vclaude\0\rprovider\vopenai\14behaviour\0\15highlights\0\nsetup\vavante\frequire\0" },
+    loaded = true,
+    path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/avante.nvim",
+    url = "https://github.com/yetone/avante.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -144,6 +150,11 @@ _G.packer_plugins = {
     path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["img-clip.nvim"] = {
+    loaded = true,
+    path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -178,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/adityakumar/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -302,6 +318,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\n«\6\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0025\3\15\0005\4\14\0=\4\16\3=\3\17\2B\0\2\1K\0\1\0\15highlights\tdiff\1\0\1\tdiff\0\1\0\2\rincoming\fDiffAdd\fcurrent\rDiffText\fwindows\1\0\3\nwidth\3\30\twrap\2\rposition\nright\14behaviour\1\0\5\18minimize_diff\2!support_paste_from_clipboard\1%auto_apply_diff_after_generation\1\29auto_set_highlight_group\2\21auto_suggestions\1\vgemini\1\0\4\nmodel\26gemini-1.5-pro-latest\ftimeout\3°ê\1\rendpoint<https://generativelanguage.googleapis.com/v1beta/models\16temperature\4æÌ™³\6æÌ™ÿ\3\vclaude\1\0\5\ftimeout\3°ê\1\nmodel\31claude-3-5-sonnet-20241022\rendpoint\30https://api.anthropic.com\15max_tokens\3€ \16temperature\4\0€€ ÿ\3\vopenai\1\0\5\ftimeout\3°ê\1\nmodel\vgpt-4o\rendpoint\30https://api.openai.com/v1\15max_tokens\3€ \16temperature\4æÌ™³\6æÌ™ÿ\3\1\0\b\fwindows\0\vgemini\0\vopenai\0\21auto_set_keymaps\1\vclaude\0\rprovider\vopenai\14behaviour\0\15highlights\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

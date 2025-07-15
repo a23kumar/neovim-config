@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap -- for conciseness
 
 
@@ -28,5 +26,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 -- Note: macOS-style buffer navigation (Option+Cmd+Arrow) is now handled in bufferline.lua
 -- with smart terminal handling to prevent opening files in terminal windows
+
+
 
 

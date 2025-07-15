@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local opt = vim.opt -- for conciseness
 
 -- line numbers
@@ -50,3 +52,6 @@ opt.iskeyword:append("-")
 
 -- always show tabline
 opt.showtabline = 2
+
+-- time to wait for a mapped sequence to complete (in ms)
+vim.opt.timeoutlen = 500

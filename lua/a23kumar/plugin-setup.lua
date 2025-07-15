@@ -123,6 +123,73 @@ return packer.startup(function(use)
     -- Smooth scrolling
     use("karb94/neoscroll.nvim")
 
+    -- AI-powered code assistance (Cursor-like IDE)
+    use({
+        "yetone/avante.nvim",
+        run = function()
+            if vim.fn.has("win32") == 1 then
+                return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+            else
+                return "make"
+            end
+        end,
+        config = function() 
+            require("avante").setup({
+                ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+                provider = "openai", -- Default provider
+                auto_set_keymaps = false, -- We handle keymaps manually
+
+                -- Provider configurations
+                openai = {
+                    endpoint = "https://api.openai.com/v1",
+                    model = "gpt-4o",
+                    timeout = 30000,
+                    temperature = 0.7,
+                    max_tokens = 4096,
+                },
+                claude = {
+                    endpoint = "https://api.anthropic.com",
+                    model = "claude-3-5-sonnet-20241022",
+                    timeout = 30000,
+                    temperature = 0.75,
+                    max_tokens = 4096,
+                },
+                gemini = {
+                    endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+                    model = "gemini-1.5-pro-latest",
+                    timeout = 30000,
+                    temperature = 0.7,
+                },
+
+                behaviour = {
+                    auto_suggestions = false,
+                    auto_set_highlight_group = true,
+                    auto_apply_diff_after_generation = false,
+                    support_paste_from_clipboard = false,
+                    minimize_diff = true,
+                },
+
+                windows = {
+                    position = "right",
+                    width = 30,
+                    wrap = true,
+                },
+
+                highlights = {
+                    diff = {
+                        current = "DiffText",
+                        incoming = "DiffAdd",
+                    },
+                },
+            })
+        end,
+        requires = {
+            "stevearc/dressing.nvim", -- for enhanced input UI
+            "HakonHarnes/img-clip.nvim", -- for image pasting support
+            "MunifTanjim/nui.nvim", -- for UI components used by avante
+        },
+    })
+
     if packer_bootstrap then
         require("packer").sync()
     end

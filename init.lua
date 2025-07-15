@@ -26,3 +26,6 @@ require("a23kumar.plugins.notify")
 require("a23kumar.plugins.dressing")
 require("a23kumar.plugins.flash")
 require("a23kumar.plugins.neoscroll")
+
+require("a23kumar.core.avante_keymaps")
+
