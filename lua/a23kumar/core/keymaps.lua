@@ -26,4 +26,7 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- Note: macOS-style buffer navigation (Option+Cmd+Arrow) is now handled in bufferline.lua
+-- with smart terminal handling to prevent opening files in terminal windows
+
 

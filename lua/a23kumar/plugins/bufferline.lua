@@ -11,17 +11,38 @@ bufferline.setup({
         numbers = "none",
         close_command = "Bdelete! %d", -- can be a string | function, | false see "Mouse actions"
         right_mouse_command = "Bdelete! %d", -- can be a string | function | false, see "Mouse actions"
-        left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
+        left_mouse_command = function(bufnr)
+            -- Function to open buffer in main window, not terminal
+            local current_win = vim.api.nvim_get_current_win()
+            local current_buf = vim.api.nvim_win_get_buf(current_win)
+            local current_filetype = vim.api.nvim_buf_get_option(current_buf, 'filetype')
+            
+            -- If current window is a terminal, find the main editing window
+            if current_filetype == 'toggleterm' then
+                -- Look for a non-terminal window
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                    local win_buf = vim.api.nvim_win_get_buf(win)
+                    local win_filetype = vim.api.nvim_buf_get_option(win_buf, 'filetype')
+                    if win_filetype ~= 'toggleterm' and win_filetype ~= 'NvimTree' then
+                        vim.api.nvim_set_current_win(win)
+                        break
+                    end
+                end
+            end
+            
+            -- Switch to the buffer
+            vim.api.nvim_set_current_buf(bufnr)
+        end,
         middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
         indicator = {
             icon = "▎", -- this should be omitted if indicator style is not 'icon'
             style = "icon",
         },
-        buffer_close_icon = "󰅖",
+        buffer_close_icon = "x",
         modified_icon = "●",
-        close_icon = "",
-        left_trunc_marker = "",
-        right_trunc_marker = "",
+        close_icon = "X",
+        left_trunc_marker = "<",
+        right_trunc_marker = ">",
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         truncate_names = true, -- whether or not tab names should be truncated
@@ -87,9 +108,43 @@ bufferline.setup({
 -- Keymaps for buffer navigation
 local keymap = vim.keymap
 
--- Navigate buffers
-keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
-keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+-- Helper function to switch to main editing window if in terminal
+local function smart_buffer_switch(direction)
+    local current_win = vim.api.nvim_get_current_win()
+    local current_buf = vim.api.nvim_win_get_buf(current_win)
+    local current_filetype = vim.api.nvim_buf_get_option(current_buf, 'filetype')
+    
+    -- If current window is a terminal, find the main editing window
+    if current_filetype == 'toggleterm' then
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local win_buf = vim.api.nvim_win_get_buf(win)
+            local win_filetype = vim.api.nvim_buf_get_option(win_buf, 'filetype')
+            if win_filetype ~= 'toggleterm' and win_filetype ~= 'NvimTree' then
+                vim.api.nvim_set_current_win(win)
+                break
+            end
+        end
+    end
+    
+    -- Execute the buffer navigation command
+    if direction == "next" then
+        vim.cmd("BufferLineCycleNext")
+    else
+        vim.cmd("BufferLineCyclePrev")
+    end
+end
+
+-- Navigate buffers with smart terminal handling
+keymap.set("n", "<S-l>", function() smart_buffer_switch("next") end, { desc = "Next buffer" })
+keymap.set("n", "<S-h>", function() smart_buffer_switch("prev") end, { desc = "Previous buffer" })
+
+-- macOS-style buffer navigation (Option+Cmd+Arrow)
+keymap.set("n", "<D-A-Right>", function() smart_buffer_switch("next") end, { desc = "Next buffer (macOS style)" })
+keymap.set("n", "<D-A-Left>", function() smart_buffer_switch("prev") end, { desc = "Previous buffer (macOS style)" })
+
+-- Alternative mappings in case the above don't work in your terminal
+keymap.set("n", "<M-D-Right>", function() smart_buffer_switch("next") end, { desc = "Next buffer (alt mapping)" })
+keymap.set("n", "<M-D-Left>", function() smart_buffer_switch("prev") end, { desc = "Previous buffer (alt mapping)" })
 
 -- Move buffers
 keymap.set("n", "<A-l>", "<cmd>BufferLineMoveNext<CR>", { desc = "Move buffer right" })
@@ -109,3 +164,25 @@ keymap.set("n", "<leader>bP", "<cmd>BufferLineTogglePin<CR>", { desc = "Toggle p
 -- Sort buffers
 keymap.set("n", "<leader>bs", "<cmd>BufferLineSortByExtension<CR>", { desc = "Sort buffers by extension" })
 keymap.set("n", "<leader>bS", "<cmd>BufferLineSortByDirectory<CR>", { desc = "Sort buffers by directory" }) 
+
+-- Insert mode buffer navigation (Option+Cmd+Arrow)
+keymap.set("i", "<D-A-Right>", function() 
+    vim.cmd("stopinsert")
+    smart_buffer_switch("next")
+    vim.cmd("startinsert")
+end, { desc = "Next buffer from insert mode" })
+keymap.set("i", "<D-A-Left>", function() 
+    vim.cmd("stopinsert")
+    smart_buffer_switch("prev")
+    vim.cmd("startinsert")
+end, { desc = "Previous buffer from insert mode" })
+keymap.set("i", "<M-D-Right>", function() 
+    vim.cmd("stopinsert")
+    smart_buffer_switch("next")
+    vim.cmd("startinsert")
+end, { desc = "Next buffer from insert mode (alt)" })
+keymap.set("i", "<M-D-Left>", function() 
+    vim.cmd("stopinsert")
+    smart_buffer_switch("prev")
+    vim.cmd("startinsert")
+end, { desc = "Previous buffer from insert mode (alt)" }) 
