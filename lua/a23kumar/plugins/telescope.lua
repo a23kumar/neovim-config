@@ -33,4 +33,4 @@ keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>", { desc = "Show marks" 
 keymap.set("n", "<leader>fo", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Show document symbols" })
 keymap.set("n", "<leader>fw", "<cmd>Telescope lsp_workspace_symbols<cr>", { desc = "Show workspace symbols" })
 keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Show keymaps" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Show commands" })
+keymap.set("n", "<leader>fC", "<cmd>Telescope commands<cr>", { desc = "Show commands" })

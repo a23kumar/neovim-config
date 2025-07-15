@@ -106,7 +106,7 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `<leader>fo` | Normal | Show document symbols (functions, variables) |
 | `<leader>fw` | Normal | Show workspace symbols |
 | `<leader>fk` | Normal | Show available keymaps |
-| `<leader>fc` | Normal | Show available commands |
+| `<leader>fC` | Normal | Show available commands |
 | `<leader>fp` | Normal | Find and switch between projects |
 
 #### Gitsigns (Git Integration)
@@ -124,6 +124,7 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `<leader>hb` | Normal | Show blame information for the current line |
 | `<leader>tb` | Normal | Toggle the inline blame display |
 | `<leader>hd` | Normal | Diff the buffer against the git index |
+| `<leader>td` | Normal | Toggle deleted lines display |
 | `ih` | Operator/Visual | Text object for the current hunk |
 
 #### DAP (Debugger)
@@ -144,14 +145,14 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | Keymap | Mode | Description |
 |---|---|---|
 | `<c-\>` | Normal | Toggle a floating terminal |
-| `<leader>tf` | Normal | Toggle a floating terminal |
-| `<leader>th` | Normal | Toggle a horizontal terminal at the bottom |
-| `<leader>tv` | Normal | Toggle a vertical terminal on the right |
+| `<leader>Tf` | Normal | Toggle a floating terminal |
+| `<leader>Th` | Normal | Toggle a horizontal terminal at the bottom |
+| `<leader>Tv` | Normal | Toggle a vertical terminal on the right |
 | `<leader>gg` | Normal | Toggle a floating `lazygit` session |
-| `<leader>tn` | Normal | Toggle a floating `node` REPL |
-| `<leader>tu` | Normal | Toggle a floating `ncdu` (disk usage) session |
-| `<leader>tt` | Normal | Toggle a floating `htop` (process viewer) session |
-| `<leader>tp` | Normal | Toggle a floating `python` REPL |
+| `<leader>Tn` | Normal | Toggle a floating `node` REPL |
+| `<leader>Tu` | Normal | Toggle a floating `ncdu` (disk usage) session |
+| `<leader>Tt` | Normal | Toggle a floating `htop` (process viewer) session |
+| `<leader>Tp` | Normal | Toggle a floating `python` REPL |
 
 #### Spectre (Search & Replace)
 
@@ -163,7 +164,7 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 
 #### Flash (Enhanced Navigation)
 
-| Keymap | Mode(s) | Description |
+| Keymap | Mode | Description |
 |---|---|---|
 | `s` | Normal, Visual, Operator | Jump to any location on screen |
 | `S` | Normal, Visual, Operator | Jump to any location using Treesitter nodes |
@@ -171,10 +172,10 @@ These are custom, general-purpose shortcuts defined in `lua/a23kumar/core/keymap
 | `R` | Operator, Visual | Treesitter search |
 | `<c-s>` | Command | Toggle flash search |
 
-## Miscellaneous Plugins
+#### Miscellaneous Plugins
 
 | Keymap | Mode | Plugin | Description |
-|--------|------|--------|-------------|
+|---|---|---|---|
 | `<leader>ss` | Normal | Auto Session | Save the current session |
 | `<leader>sr` | Normal | Auto Session | Restore the last session |
 | `<leader>sd` | Normal | Auto Session | Delete a session |

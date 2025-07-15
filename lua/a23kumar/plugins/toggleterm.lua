@@ -72,11 +72,16 @@ end
 -- Keymaps
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle floating terminal" })
-keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Toggle horizontal terminal" })
-keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "Toggle vertical terminal" })
+-- Terminal toggle commands (using <leader>T for terminal)
+keymap.set("n", "<leader>Tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle floating terminal" })
+keymap.set("n", "<leader>Th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Toggle horizontal terminal" })
+keymap.set("n", "<leader>Tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "Toggle vertical terminal" })
+
+-- Git lazygit (keep this popular one as is)
 keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Toggle lazygit" })
-keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node" })
-keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<CR>", { desc = "Toggle ncdu" })
-keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
-keymap.set("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python" }) 
+
+-- Terminal applications (using <leader>T prefix)
+keymap.set("n", "<leader>Tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node" })
+keymap.set("n", "<leader>Tu", "<cmd>lua _NCDU_TOGGLE()<CR>", { desc = "Toggle ncdu" })
+keymap.set("n", "<leader>Tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
+keymap.set("n", "<leader>Tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python" }) 
